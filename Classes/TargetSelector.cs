@@ -24,36 +24,7 @@ namespace TF
             if (ObjectManager.Player.BaseSkinName == "TwistedFate")
             {
                 Game.OnWndProc += Game_OnWndProc;
-                Game.OnGameUpdate += Game_OnGameUpdate;
                 Game.PrintChat(">> TF by Andyi loaded <<");
-            }
-        }
-
-        static void Game_OnGameUpdate(EventArgs args)
-        {
-            if (Environment.TickCount < lastW + 3000)
-            {
-                switch (_type)
-                {
-                    case CardType.Blue:
-                        if (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Name == "bluecardlock")
-                        {
-                            ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
-                        }
-                        break;
-                    case CardType.Gold:
-                        if (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Name == "goldcardlock")
-                        {
-                            ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
-                        }
-                        break;
-                    case CardType.Red:
-                        if (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Name == "redcardlock")
-                        {
-                            ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
-                        }
-                        break;
-                }
             }
         }
 
@@ -91,8 +62,6 @@ namespace TF
             Red,
         }
 
-        private static CardType _type;
-
         private static void GetCard(CardType type)
         {
             if (ObjectManager.Player.Spellbook.CanUseSpell(SpellSlot.W) == SpellState.Ready)
@@ -102,7 +71,27 @@ namespace TF
                     ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
                     lastW = Environment.TickCount;
                 }
-                _type = type;
+                switch (type)
+                {
+                    case CardType.Blue:
+                        if (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Name == "bluecardlock")
+                        {
+                            ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
+                        }
+                        break;
+                    case CardType.Gold:
+                        if (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Name == "goldcardlock")
+                        {
+                            ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
+                        }
+                        break;
+                    case CardType.Red:
+                        if (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Name == "redcardlock")
+                        {
+                            ObjectManager.Player.Spellbook.CastSpell(SpellSlot.W);
+                        }
+                        break;
+                }
             }
         }
     }
