@@ -484,7 +484,7 @@ public static class DamageLib
             }
             else if (version == localversion)
             {
-                Game.PrintChat("<font color='#33FFFF'>DamageLib: You have to most recent version loaded!</font>");
+                Game.PrintChat("<font color='#33FFFF'>DamageLib: You have the most recent version loaded!</font>");
             }
         }
         catch
@@ -2014,7 +2014,7 @@ public static class DamageLib
             case SpellType.Q:
                 return CalcMagicDmg((55 + (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Level * 25)) + (0.7 * ObjectManager.Player.FlatMagicDamageMod), enemy);
             case SpellType.W:
-                return CalcMagicDmg((15 + (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Level * 25)) + (0.6 * ObjectManager.Player.FlatMagicDamageMod), enemy);
+                return CalcMagicDmg((5 + (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Level * 35)) + (0.7 * ObjectManager.Player.FlatMagicDamageMod), enemy);
             case SpellType.E:
                 return CalcMagicDmg((55 + (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.E).Level * 25)) + (0.7 * ObjectManager.Player.FlatMagicDamageMod), enemy);
             case SpellType.R:
@@ -2878,9 +2878,9 @@ public static class DamageLib
                 switch (stagetype)
                 {
                     case StageType.Default:
-                        return CalcPhysicalDmg(20 + (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Level * 20) + ((0.95 * (5 * ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Level)) * (ObjectManager.Player.FlatPhysicalDamageMod + ObjectManager.Player.BaseAttackDamage)), enemy); // basic q
+                        return CalcPhysicalDmg(30 + (ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Level * 30) + ((0.95 * (5 * ObjectManager.Player.Spellbook.GetSpell(SpellSlot.Q).Level)) * (ObjectManager.Player.FlatPhysicalDamageMod + ObjectManager.Player.BaseAttackDamage)), enemy); // basic q
                     case StageType.FirstDamage:
-                        return CalcPhysicalDmg(10 + (ObjectManager.Player.Level * 10) + (1.5 * ObjectManager.Player.FlatPhysicalDamageMod + ObjectManager.Player.BaseAttackDamage), enemy); // empowered q
+                        return CalcPhysicalDmg(17.65 + (ObjectManager.Player.Level * 12.35) + (1.5 * ObjectManager.Player.FlatPhysicalDamageMod + ObjectManager.Player.BaseAttackDamage), enemy); // empowered q
                     default:
                         throw new InvalidCastException();
                 }
