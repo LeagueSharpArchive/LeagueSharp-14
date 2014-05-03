@@ -1,0 +1,38 @@
+public class Updater
+    {
+        private string _versionlink;
+        private string _updatelink;
+        private int _localversion;
+
+        public bool needUpdate = false;
+
+        System.Net.WebClient wc = new System.Net.WebClient() { Proxy = null };
+        public Updater(string versionlink, string updatelink, int localversion)
+        {
+            _versionlink = versionlink;
+            _updatelink = updatelink;
+            _localversion = localversion;
+
+            needUpdate = (Convert.ToInt32(wc.DownloadString(versionlink)) > _localversion) ? true : false;
+        }
+
+        public bool Update()
+        {
+            try
+            {
+                if (System.IO.File.Exists(System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location) + ".bak"))
+                {
+                    System.IO.File.Delete(System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location) + ".bak");
+                }
+                System.IO.File.Move(System.Reflection.Assembly.GetExecutingAssembly().Location, System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location) + ".bak");
+                string loc = System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                wc.DownloadFile(_updatelink, System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location));
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Game.PrintChat("Updater: " + ex.Message);
+                return false;
+            }
+        }
+    }

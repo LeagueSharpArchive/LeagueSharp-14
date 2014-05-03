@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using LeagueSharp;
+
+namespace UpdaterTest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            GameMode gm = GameMode.Connecting;
+            while (gm != GameMode.Running)
+            {
+                gm = Game.Mode;
+            }
+
+            Game.PrintChat("Loaded UpdaterTest");
+            Updater myUpdater = new Updater("https://github.com/Andyi19/LeagueSharp/raw/master/UpdateTest/version.txt", "https://github.com/Andyi19/LeagueSharp/raw/master/UpdateTest/UpdaterTest.exe", 1);
+            if (myUpdater.needUpdate == true)
+            {
+                Game.PrintChat("This needs an update... Starting updating...");
+                if (myUpdater.Update() == true)
+                {
+                    Game.PrintChat("Update done, reload now");
+                }
+            }
+        }
+    }
+
+    public class Updater
+    {
+        private string _versionlink;
+        private string _updatelink;
+        private int _localversion;
+
+        public bool needUpdate = false;
+
+        System.Net.WebClient wc = new System.Net.WebClient() { Proxy = null };
+        public Updater(string versionlink, string updatelink, int localversion)
+        {
+            _versionlink = versionlink;
+            _updatelink = updatelink;
+            _localversion = localversion;
+
+            needUpdate = (Convert.ToInt32(wc.DownloadString(versionlink)) > _localversion) ? true : false;
+        }
+
+        public bool Update()
+        {
+            try
+            {
+                if (System.IO.File.Exists(System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location) + ".bak"))
+                {
+                    System.IO.File.Delete(System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location) + ".bak");
+                }
+                System.IO.File.Move(System.Reflection.Assembly.GetExecutingAssembly().Location, System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location) + ".bak");
+                string loc = System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                wc.DownloadFile(_updatelink, System.IO.Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location));
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Game.PrintChat("Updater: " + ex.Message);
+                return false;
+            }
+        }
+    }
+}
