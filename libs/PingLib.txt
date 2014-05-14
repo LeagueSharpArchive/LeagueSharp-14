@@ -16,7 +16,7 @@ public class PingLib
 
     public static void SendPing(PingType ptype, SendType stype, GameObject target)
     {
-        SendPing(ptype, stype, new Vector3(), target);
+        SendPing(ptype, stype, target.Position, target);
     }
 
     public static void SendPing(PingType ptype, SendType stype, Vector3 position = new Vector3(), GameObject target = null)
