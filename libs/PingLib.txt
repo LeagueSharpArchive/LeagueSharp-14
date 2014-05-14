@@ -11,12 +11,12 @@ public class PingLib
 {
     public static void SendPing(PingType ptype, SendType stype, Vector3 position)
     {
-        SendPing(ptype, stype, position);
+        SendPing(ptype, stype, position, null);
     }
 
     public static void SendPing(PingType ptype, SendType stype, GameObject target)
     {
-        SendPing(ptype, stype, target);
+        SendPing(ptype, stype, new Vector3(), target);
     }
 
     public static void SendPing(PingType ptype, SendType stype, Vector3 position = new Vector3(), GameObject target = null)
