@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 16
-=======
-15
->>>>>>> origin/master
-=======
-16
->>>>>>> b9ad6acbabdd6ac4cb469c98fe026bd37adfa853
