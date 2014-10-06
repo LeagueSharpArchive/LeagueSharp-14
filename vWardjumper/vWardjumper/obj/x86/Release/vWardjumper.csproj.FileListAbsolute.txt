@@ -1,0 +1,11 @@
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\vWardjumper.exe.config
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\vWardjumper.exe
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\vWardjumper.pdb
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\LeagueSharp.Common.dll
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\LeagueSharp.dll
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\SharpDX.Direct3D9.dll
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\SharpDX.dll
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\bin\x86\Release\LeagueSharp.xml
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\obj\x86\Release\vWardjumper.csprojResolveAssemblyReference.cache
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\obj\x86\Release\vWardjumper.exe
+C:\Users\Andy\Desktop\LeagueSharp\vWardjumper\vWardjumper\obj\x86\Release\vWardjumper.pdb
