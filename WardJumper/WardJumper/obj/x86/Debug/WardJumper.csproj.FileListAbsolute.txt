@@ -1,0 +1,7 @@
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\bin\x86\Debug\WardJumper.exe.config
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\bin\x86\Debug\WardJumper.exe
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\bin\x86\Debug\WardJumper.pdb
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\bin\x86\Debug\LeagueSharp.dll
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\bin\x86\Debug\LeagueSharp.xml
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\obj\x86\Debug\WardJumper.exe
+c:\users\andy\documents\visual studio 2013\Projects\WardJumper\WardJumper\obj\x86\Debug\WardJumper.pdb
