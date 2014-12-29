@@ -53,10 +53,11 @@ namespace vWardjumper
             Vector3 wardPosition = myPos + delta * (600 - 5);
             //Vector3 wardPosition = cursorPos;
 
-            InventorySlot invSlot = FindBestWardItem();
-            if (invSlot == null) return;
+            int invSlot = FindBestWardItem();
+            if (invSlot == -1) return;
 
-            invSlot.UseItem(wardPosition);
+            //invSlot.UseItem(wardPosition);
+            Items.UseItem(invSlot, wardPosition);
             lastWardPos = wardPosition;
             lastPlaced = Environment.TickCount;
         }
@@ -66,18 +67,18 @@ namespace vWardjumper
             return ObjectManager.Player.Spellbook.Spells.FirstOrDefault(spell => (int)spell.Slot == invSlot.Slot + 4);
         }
 
-        private static InventorySlot FindBestWardItem()
+        private static int FindBestWardItem()
         {
             InventorySlot slot = Items.GetWardSlot();
-            if (slot == default(InventorySlot)) return null;
+            if (slot == default(InventorySlot)) return -1;
 
             SpellDataInst sdi = GetItemSpell(slot);
 
             if (sdi != default(SpellDataInst) && sdi.State == SpellState.Ready)
             {
-                return slot;
+                return Convert.ToInt32(slot.Id);
             }
-            return null;
+            return -1;
         }
 
         private static Spell GetJumpSpell()
